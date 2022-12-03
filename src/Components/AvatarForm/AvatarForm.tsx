@@ -3,18 +3,21 @@ import './AvatarFormStyle.css';
 import check from '../../assets/icons/correct.svg';
 import person from '../../assets/icons/person.svg';
 import {getPeoples} from '../../Services/form.services';
+import {AvatarInterface} from '../../interfaces/formInterface';
+import {AvatarFormButton} from './AvatarFormButton';
+import {AvatarImage} from './AvatarImage';
 
 export const AvatarForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [peolplesData, setPeoplesData] = useState<any>({});
+  const [peolplesData, setPeoplesData] = useState<AvatarInterface<[]>>();
   const [peopleIndex, setPeopleIndex] = useState<number>(1);
-
+  const imageUrl: string = 'https://picsum.photos/534/383';
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const peoplesData = await getPeoples(peopleIndex);
-        setPeoplesData(peoplesData.data);
+        const getPeoplesData = await getPeoples(peopleIndex);
+        setPeoplesData(getPeoplesData.data);
       } catch (error) {
         console.log(error);
       } finally {
@@ -26,42 +29,26 @@ export const AvatarForm = () => {
 
   return (
     <div className='avatar-container'>
-      <div className='avatar-box'>
-        <div className='avatar-box-image'>
-          <img
-            className='avatar-image'
-            src={'https://picsum.photos/534/383'}
-            alt='avatar'
-          />
-        </div>
+      <div className='avatar-container__box'>
+        <AvatarImage imageUrl={imageUrl} />
         {loading !== true ? (
-          <div className='avatar-card'>
-            <div className='avatar-card-box-name'>
-              <div className='avatar-card-name'>{peolplesData.name}</div>
-              <div className='icons'>
+          <div className='avatar-container__card'>
+            <div className='avatar-card__box'>
+              <div className='avatar-card__box__name'>{peolplesData?.name}</div>
+              <div className='avatar-card__box__icons'>
                 <img src={person} /> <img src={check} />
               </div>
             </div>
-            <div className='avatar-card-properties'>
-              <div className='avatar-card-properties-info'>
-                age: {peolplesData.birth_year}{' '}
-              </div>
-              <div className='avatar-card-properties-info'>
-                eyes color:{peolplesData.eye_color}
-              </div>
+            <div className='avatar-container__card__properties'>
+              <div>age: {peolplesData?.birth_year} </div>
+              <div>eyes color:{peolplesData?.eye_color}</div>
             </div>
           </div>
         ) : (
           <div>Loading...</div>
         )}
       </div>
-      <button
-        onClick={() => {
-          setPeopleIndex((index) => index + 1);
-        }}
-        className='avatar-button'>
-        next profiles
-      </button>
+      <AvatarFormButton setPeopleIndex={setPeopleIndex} />
     </div>
   );
 };
