@@ -1,0 +1,120 @@
+.form-container {
+  background-color: white;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 11px 21px;
+}
+.form-title {
+  width: 90%;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 33px;
+  font-weight: 700;
+  text-align: end;
+  letter-spacing: 15%;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form-box-input {
+  width: 80%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.form-inputs-titles {
+  width: 80%;
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 33px;
+  font-weight: 700;
+  margin-top: 23px;
+}
+.form-input {
+  width: 100%;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  height: 50px;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.form-inputs-error {
+  width: 80%;
+}
+.form-inputs-error-message {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: red;
+}
+.form-inputs-box-checkbox {
+  margin-top: 23px;
+  width: 80%;
+  display: flex;
+  justify-items: center;
+}
+.form-inputs-title-checkbox {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 33px;
+}
+.form-inputs-checkbox {
+  width: 30px;
+  height: 30px;
+}
+.form-inputs-error-checkbox {
+  font-family: 'Inter';
+  color: red;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  margin-left: 16px;
+}
+.form-box-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  margin: 40px 0px;
+}
+.form-button {
+  width: 244px;
+  height: 43px;
+  background: #071594;
+  box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  color: white;
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+  /* or 30px */
+
+  text-align: center;
+
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
